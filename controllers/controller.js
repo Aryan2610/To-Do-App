@@ -1,6 +1,7 @@
 const Todo = require("../models/model");
 const catchAsync = require("../utils/catchAsync");
 
+// Rendering the view
 exports.getTodoView = catchAsync(async (req, res, next) => {
   const tasks = await Todo.find();
   res
@@ -15,6 +16,7 @@ exports.getTodoView = catchAsync(async (req, res, next) => {
     });
 });
 
+// Create New Task
 exports.createTask = catchAsync(async (req, res, next) => {
   try {
     const newTask = await Todo.create(req.body);
@@ -31,6 +33,7 @@ exports.createTask = catchAsync(async (req, res, next) => {
   }
 });
 
+// Update if the task is completed
 exports.updateTaskCompleted = catchAsync(async (req, res, next) => {
   const updatedTask = await Todo.findByIdAndUpdate(req.params.id, {
     completed: true,
@@ -46,6 +49,7 @@ exports.updateTaskCompleted = catchAsync(async (req, res, next) => {
   });
 });
 
+// Update if the task is not completed
 exports.updateTaskActive = catchAsync(async (req, res, next) => {
   const updatedTask = await Todo.findByIdAndUpdate(req.params.id, {
     completed: false,
@@ -61,6 +65,7 @@ exports.updateTaskActive = catchAsync(async (req, res, next) => {
   });
 });
 
+// Delete the task
 exports.deleteTask = catchAsync(async (req, res, next) => {
   const task = await Todo.findByIdAndDelete(req.params.id).then(
     res.redirect("/")
@@ -70,6 +75,7 @@ exports.deleteTask = catchAsync(async (req, res, next) => {
   }
 });
 
+// See all active tasks
 exports.activeTask = catchAsync(async (req, res, next) => {
   // const check = await Todo.aggregate([
   //   {
@@ -89,6 +95,7 @@ exports.activeTask = catchAsync(async (req, res, next) => {
     });
 });
 
+// See all completed tasks
 exports.completedTask = catchAsync(async (req, res, next) => {
   // const check = await Todo.aggregate([
   //   {
