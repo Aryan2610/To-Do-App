@@ -1,0 +1,263 @@
+:root {
+  --black: #25273c;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(30, 30, 30);
+}
+
+.header {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  height: 25rem;
+  background-image: linear-gradient(
+      90deg,
+      rgba(6, 138, 245, 0.7) 5%,
+      rgba(9, 9, 121, 0.7) 69%
+    ),
+    url(../img/todo2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header-title {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  font-family: "Raleway", sans-serif;
+  color: rgb(223, 223, 223);
+}
+
+.links {
+  font-size: 2rem;
+  color: rgb(223, 223, 223);
+  text-decoration: none;
+}
+
+.links:hover {
+  border-bottom: 2px solid black;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+
+h1 {
+  font-size: 4rem;
+  letter-spacing: 10px;
+}
+
+.task-input {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  background-color: var(--black);
+  color: rgb(189, 189, 189);
+  padding: 1rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.add {
+  --b: 0.4rem;
+  width: 4rem;
+  aspect-ratio: 1;
+  border: 10px solid #000;
+  background: conic-gradient(
+      from 90deg at var(--b) var(--b),
+      #000 90deg,
+      #fff 0
+    )
+    calc(100% + var(--b) / 2) calc(100% + var(--b) / 2) / calc(50% + var(--b))
+    calc(50% + var(--b));
+  display: inline-block;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.add:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+
+.input {
+  width: 100%;
+  background-color: var(--black);
+  border: none;
+  color: rgb(222, 222, 222);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: rgb(130, 130, 130);
+  font-family: "Montserrat", sans-serif;
+}
+
+.task-container-main {
+  position: absolute;
+  top: 65%;
+  left: 30%;
+  width: 40%;
+  height: 100%;
+  display: block;
+  z-index: 9999;
+}
+.task-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--black);
+  color: rgb(189, 189, 189);
+  padding: 1.2rem;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.task {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+}
+
+.strike {
+  text-decoration: line-through;
+  color: rgb(189, 189, 189);
+}
+
+.marker {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgb(222, 222, 222);
+  border-radius: 50%;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.completed {
+  background-color: rgb(9, 255, 0);
+}
+
+.delete {
+  position: absolute;
+  right: 2rem;
+  width: 3.2rem;
+  height: 3.3rem;
+  opacity: 0.5;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  cursor: pointer;
+}
+.delete:hover {
+  opacity: 1;
+}
+.delete:before,
+.delete:after {
+  position: absolute;
+  left: 3rem;
+  content: " ";
+  height: 3.3rem;
+  width: 0.2rem;
+  background-color: rgb(255, 0, 0);
+}
+.delete:before {
+  transform: rotate(45deg);
+}
+.delete:after {
+  transform: rotate(-45deg);
+}
+
+@media only screen and (max-width: 750px) {
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .links {
+    font-size: 1.4rem;
+  }
+  .header-title {
+    display: block;
+  }
+  .link-2 {
+    margin: 1rem;
+  }
+  .link-3 {
+    margin: 1rem;
+  }
+  .task-input {
+    margin-top: 1rem;
+  }
+  .input {
+    font-size: 1rem;
+  }
+  .add {
+    --b: 0.2rem;
+    width: 3rem;
+  }
+  .task-container {
+    width: 100%;
+  }
+  .task {
+    font-size: 0.8rem;
+  }
+  .marker {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+  }
+  .delete::before,
+  .delete:after {
+    top: 1rem;
+    margin-left: 1rem;
+    height: 1.5rem;
+    width: 0.2rem;
+  }
+}

@@ -1,0 +1,34 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet', href='/css/style.css')
+        link(rel='preconnect', href='https://fonts.googleapis.com')
+        link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin='')
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Raleway:wght@200&display=swap" rel="stylesheet">
+        title ToDo
+    body
+    header.header
+        .header-title
+            h1 TODO
+            a.links.link-1(href='/') All
+            a.links.link-2(href='/active') Active
+            a.links.link-3(href='/completed') Completed
+        .task-input
+            input.input(type='text', name='task', placeholder='Add a new task...')
+            a.add(href='#')
+        .task-container-main
+            for task in tasks
+                .task-container
+                    if task.completed==false
+                        a.marker.active(href = `update-task-completed/${task._id}`)
+                        span.task= task.task
+                    else
+                        a.marker.completed(href = `update-task-active/${task._id}`)
+                        span.task.strike= task.task
+                    a.delete(href= `delete-task/${task._id}`)
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js')
+    script(src='/js/script.js' type="module")
