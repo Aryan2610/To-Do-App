@@ -42,13 +42,7 @@ dependencies by running
 ```
 $ npm i
 set your env variables
-$ npm run dev (for development)
-$ npm run start:prod (for production)
-$ npm run debug (for debug)
 $ npm start
-Setting up ESLint and Prettier in VS Code 👇
-$ npm i eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-config-airbnb eslint-plugin-node
-eslint-plugin-import eslint-plugin-jsx-a11y  eslint-plugin-react --save-dev
 ```
 
 ## Links
