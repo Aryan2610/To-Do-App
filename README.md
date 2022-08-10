@@ -17,10 +17,10 @@ It is a simple to do list application made with nodejs to record your daily task
 ### The challenge
 
 Users should be able to:
--Add new todos to the list
--Mark todos as complete
--Delete todos from the list
--Filter by all/active/complete todos
+- Add new todos to the list
+- Mark todos as complete
+- Delete todos from the list
+- Filter by all/active/complete todos
 
 ## Screenshot
 
